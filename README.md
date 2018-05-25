@@ -15,6 +15,10 @@ Neural networks play my favorite retro games
 
 ## Usage:
 
+1. Create and activate a Python 3.6 virtual environment in `venv` directory.
+2. Install required python packages: `pip install -r requirements.txt`
+3. Run `copy.sh` to inject my favourite games environments to [Retro](https://github.com/openai/retro)
+
 ### train.py
 
 Trains new agent

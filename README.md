@@ -2,7 +2,7 @@
 
 Neural networks play my favorite retro games
 
-<img src="https://media.giphy.com/media/5h9xfARzcPX9q8ZWse/giphy.gif" />
+<img src="https://media.giphy.com/media/AhhTXa52vdkP4p0N8W/giphy.gif" />
 
 ## Featured games:
 

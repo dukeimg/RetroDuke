@@ -27,6 +27,22 @@
     "progress": {
       "address": 16718026,
       "type": ">u2"
+    },
+    "damage-rear": {
+      "address": 16718286,
+      "type": "|u1"
+    },
+    "damage-front": {
+      "address": 16718287,
+      "type": "|u1"
+    },
+    "damage-right": {
+      "address": 16718288,
+      "type": "|u1"
+    },
+    "damage-left": {
+      "address": 16718289,
+      "type": "|u1"
     }
   }
 }

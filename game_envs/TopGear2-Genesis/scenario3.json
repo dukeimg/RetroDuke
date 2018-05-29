@@ -1,0 +1,26 @@
+{
+  "done": {
+    "variables": {
+      "finished": {
+        "measurement": 1
+      }
+    }
+  },
+  "scripts": [
+    "script2.lua"
+  ],
+  "reward": {
+    "variables": {
+      "progress": {
+        "reward": 1
+      },
+      "damage-front": {
+        "penalty": 1
+      },
+      "position": {
+        "reward": 1000,
+        "penalty": 1000
+      }
+    }
+  }
+}

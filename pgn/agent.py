@@ -11,7 +11,6 @@ class Agent:
         self.model = PGNetwork(game.frame_shape, game.action_size)
         self.env = env
         self.writer = writer
-        self.decay_step = 0
         self.all_rewards = []
 
         tf.summary.scalar("Loss", self.model.loss)
@@ -164,6 +163,8 @@ class Agent:
                             average_reward_of_all_training, maximum_reward_recorded)
 
         self.model.learning_rate -= self.learning_rate_decay
+
+        print(self.model.learning_rate)
 
         if total_reward_of_that_batch == maximum_reward_recorded:
             return sess, 'max_reward'

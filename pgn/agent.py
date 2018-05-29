@@ -164,8 +164,6 @@ class Agent:
 
         self.model.learning_rate -= self.learning_rate_decay
 
-        print(self.model.learning_rate)
-
         if total_reward_of_that_batch == maximum_reward_recorded:
             return sess, 'max_reward'
         else:

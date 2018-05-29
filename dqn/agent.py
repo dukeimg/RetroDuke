@@ -161,7 +161,7 @@ class Agent:
 
         self.print_progress(episode, total_reward, loss, explore_probability)
 
-        return sess
+        return sess, None
 
     def play(self, sess):
         self.env.reset()

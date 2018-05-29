@@ -168,7 +168,7 @@ class Agent:
         if total_reward_of_that_batch == maximum_reward_recorded:
             return sess, 'max_reward'
         else:
-            return sess
+            return sess, None
 
     def play(self, sess):
         self.env.reset()

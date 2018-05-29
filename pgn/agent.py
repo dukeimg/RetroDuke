@@ -21,6 +21,7 @@ class Agent:
         self.batch_size = training_config.get('batch_size')
         self.max_steps = training_config.get('max_steps')
         self.total_episodes = training_config.get('total_episodes')
+        self.learning_rate_decay = (self.model.alpha_start - self.model.alpha_stop) / self.total_episodes
 
         self.processor = ImageProcessor(game.process_image_format, render_format=game.render_format, viewer=viewer)
         self.stacked_frames = deque([np.zeros(game.frame_shape, dtype=np.int) for _ in range(self.model.stack_size)],
@@ -161,6 +162,8 @@ class Agent:
 
         self.print_progress(episode, batch_number_of_episodes, total_reward_of_that_batch, mean_reward_of_that_batch,
                             average_reward_of_all_training, maximum_reward_recorded)
+
+        self.model.learning_rate -= self.learning_rate_decay
 
         if total_reward_of_that_batch == maximum_reward_recorded:
             return sess, 'max_reward'

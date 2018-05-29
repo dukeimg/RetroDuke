@@ -11,7 +11,7 @@ games = {
         'frame_shape': [73, 172],
         'training': {
             'dqn': {
-                'total_episodes': 101,
+                'total_episodes': 100,
                 'max_steps': 50,
                 'batch_size': 64
             },
@@ -38,7 +38,8 @@ networks = {
     },
     'pgn': {
         'stack_size': 4,
-        'learning_rate': 0.0002,
+        'alpha_start': 0.95,
+        'alpha_stop': 0.0002,
         'decay_rate': 0.00001,
         'gamma': 0.99
     }

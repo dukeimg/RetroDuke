@@ -8,12 +8,15 @@ class PGNetwork:
         self.config = networks.get(self.name)
 
         self.stack_size = self.config.get('stack_size')
-        self.learning_rate = self.config.get('learning_rate')
+        self.alpha_start = self.config.get('alpha_start')
+        self.alpha_stop = self.config.get('alpha_stop')
         self.decay_rate = self.config.get('decay_rate')
         self.gamma = self.config.get('gamma')
 
         self.state_size = [*frame_shape, self.stack_size]
         self.action_size = action_size
+
+        self.learning_rate = self.alpha_start
 
         with tf.variable_scope(name):
             with tf.name_scope("inputs"):

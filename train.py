@@ -57,7 +57,7 @@ with tf.Session(config=config) as sess:
     else:
         sess.run(tf.global_variables_initializer())
 
-    for episode in range(agent.total_episodes):
+    for episode in range(1, agent.total_episodes + 1):
         sess, save = agent.train(sess, episode, quiet=args.quiet)
 
         if episode % 5 == 0:

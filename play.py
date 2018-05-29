@@ -1,25 +1,22 @@
 #!/usr/bin/env python
 
-import datetime
-import subprocess
-
 import argparse
 import retro
 import tensorflow as tf
 
 from game import Game
+from gym.envs.classic_control.rendering import SimpleImageViewer
 
 parser = argparse.ArgumentParser()
 parser.add_argument('game', nargs='?', help='the initial state file to load, minus the extension')
 parser.add_argument('network', nargs='?', help='the algorithm to work with (dqn, pqn)')
 parser.add_argument('--state', help='the initial state file to load, minus the extension')
 parser.add_argument('--model', '-m', help='the model to load, minus the extension')
+parser.add_argument('--scenario', '-s', default='scenario', help='the scenario file to load, minus the extension')
 args = parser.parse_args()
 
-viewer = None
-if not args.quiet:
-    from gym.envs.classic_control.rendering import SimpleImageViewer
-    viewer = SimpleImageViewer()
+
+viewer = SimpleImageViewer()
 
 game = Game(args.game)
 env = retro.make(args.game, args.state or retro.STATE_DEFAULT, scenario=args.scenario)

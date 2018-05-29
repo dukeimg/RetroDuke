@@ -68,4 +68,5 @@ with tf.Session(config=config) as sess:
         saver.save(sess, "./models/latest_{}_model.ckpt".format(agent.model.name))
         print("Model Saved")
         if not args.quiet:
-            subprocess.run(['python', 'play.py', args.game, args.network])
+            parameters = ['python', 'play.py', args.game, args.network, '-s', args.scenario]
+            subprocess.run(parameters)

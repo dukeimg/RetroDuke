@@ -11,7 +11,7 @@ Neural networks play my favorite retro games
 ## Featured networks:
 
 - Deep Q Neural Network
-- Monte Carlo Policy Gradients (to be added soon)
+- Monte Carlo Policy Gradients
 
 ## Usage:
 

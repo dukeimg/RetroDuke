@@ -14,6 +14,11 @@ games = {
                 'total_episodes': 101,
                 'max_steps': 50,
                 'batch_size': 64
+            },
+            'pgn': {
+                'total_episodes': 1000,
+                'max_steps': 2000,
+                'batch_size': 2000
             }
         },
         'render_format': [[10, 208], [0, 256]],
@@ -30,5 +35,11 @@ networks = {
         'decay_rate': 0.00001,
         'gamma': 0.99,
         'memory_size': 16000
+    },
+    'pgn': {
+        'stack_size': 4,
+        'learning_rate': 0.0002,
+        'decay_rate': 0.00001,
+        'gamma': 0.99
     }
 }

@@ -37,8 +37,10 @@ if args.network == 'dqn':
 
     agent = Agent(game, env, writer, viewer=viewer)
     agent.prepare()
-elif args.network == 'pqn':
-    print('Nothing')
+elif args.network == 'pgn':
+    from pgn.agent import Agent
+
+    agent = Agent(game, env, writer, viewer=viewer)
 else:
     raise ValueError('Please specify a valid network (dqn, pqn)')
 
@@ -56,11 +58,13 @@ with tf.Session(config=config) as sess:
         sess.run(tf.global_variables_initializer())
 
     for episode in range(agent.total_episodes):
-        sess = agent.train(sess, episode, quiet=args.quiet)
+        sess, save = agent.train(sess, episode, quiet=args.quiet)
 
         if episode % 5 == 0:
             filename = datetime.datetime.now().strftime('ep-{}-%Y-%m-%d %H:%M:%S'.format(episode))
             saver.save(sess, "./models/{}/{}.ckpt".format(agent.model.name, filename))
+        if save:
+            saver.save(sess, "./models/{}/{}.ckpt".format(agent.model.name, save))
         saver.save(sess, "./models/latest_{}_model.ckpt".format(agent.model.name))
         print("Model Saved")
         if not args.quiet:

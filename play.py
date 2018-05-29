@@ -35,10 +35,12 @@ if args.network == 'dqn':
 
     agent = Agent(game, env, writer, viewer=viewer)
     agent.prepare()
-elif args.network == 'pqn':
-    print('Nothing')
+elif args.network == 'pgn':
+    from pgn.agent import Agent
+
+    agent = Agent(game, env, writer, viewer=viewer)
 else:
-    raise ValueError('Please specify a valid network (dqn, pqn)')
+    raise ValueError('Please specify a valid network (dqn, pgn)')
 
 # Saver will help us to save our model
 saver = tf.train.Saver()

@@ -4,16 +4,13 @@ from config import networks
 
 class PGNetwork:
     def __init__(self, frame_shape, action_size, name='PGNetwork'):
-        self.name = 'dqn'
+        self.name = 'pgn'
         self.config = networks.get(self.name)
 
         self.stack_size = self.config.get('stack_size')
         self.learning_rate = self.config.get('learning_rate')
-        self.explore_start = self.config.get('explore_start')
-        self.explore_stop = self.config.get('explore_stop')
         self.decay_rate = self.config.get('decay_rate')
         self.gamma = self.config.get('gamma')
-        self.memory_size = self.config.get('memory_size')
 
         self.state_size = [*frame_shape, self.stack_size]
         self.action_size = action_size

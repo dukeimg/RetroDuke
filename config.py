@@ -40,7 +40,6 @@ networks = {
         'stack_size': 4,
         'alpha_start': 0.001,
         'alpha_stop': 0.001,
-        'decay_rate': 0.00001,
         'gamma': 0.95
     }
 }

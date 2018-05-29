@@ -3,5 +3,5 @@
 venv
 tensorboard
 
-models
+models/**/*
 !models/.keep

@@ -1,19 +1,30 @@
 import tensorflow as tf
+from config import networks
 
 
 class PGNetwork:
-    def __init__(self, state_size, action_size, learning_rate, name='PGNetwork'):
-        self.state_size = state_size
+    def __init__(self, frame_shape, action_size, name='PGNetwork'):
+        self.name = 'dqn'
+        self.config = networks.get(self.name)
+
+        self.stack_size = self.config.get('stack_size')
+        self.learning_rate = self.config.get('learning_rate')
+        self.explore_start = self.config.get('explore_start')
+        self.explore_stop = self.config.get('explore_stop')
+        self.decay_rate = self.config.get('decay_rate')
+        self.gamma = self.config.get('gamma')
+        self.memory_size = self.config.get('memory_size')
+
+        self.state_size = [*frame_shape, self.stack_size]
         self.action_size = action_size
-        self.learning_rate = learning_rate
 
         with tf.variable_scope(name):
             with tf.name_scope("inputs"):
                 # We create the placeholders
                 # *state_size means that we take each elements of state_size in tuple hence is like if we wrote
                 # [None, 84, 84, 4]
-                self.inputs_ = tf.placeholder(tf.float32, [None, *state_size], name="inputs_")
-                self.actions = tf.placeholder(tf.int32, [None, action_size], name="actions")
+                self.inputs_ = tf.placeholder(tf.float32, [None, *self.state_size], name="inputs_")
+                self.actions = tf.placeholder(tf.int32, [None, self.action_size], name="actions")
                 self.discounted_episode_rewards_ = tf.placeholder(tf.float32, [None, ],
                                                                   name="discounted_episode_rewards_")
 

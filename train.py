@@ -15,7 +15,7 @@ parser.add_argument('network', nargs='?', help='the algorithm to work with (dqn,
 parser.add_argument('--state', help='the initial state file to load, minus the extension')
 parser.add_argument('--model', '-m', help='the model to load, minus the extension')
 parser.add_argument('--scenario', '-s', default='scenario', help='the scenario file to load, minus the extension')
-parser.add_argument('--quiet', '-q', default=False, help='do not render gameplay')
+parser.add_argument('--quiet', '-q', action='store_true', help='do not render gameplay')
 args = parser.parse_args()
 
 viewer = None

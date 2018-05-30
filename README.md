@@ -7,6 +7,7 @@ Neural networks play my favorite retro games
 ## Featured games:
 
 - Top Gear 2
+- Contra: Hard Corps
 
 ## Featured networks:
 
@@ -68,5 +69,4 @@ last model is used.
 
 ## Upcoming games:
 
-- Contra: Hard Corps
 - Doom Troopers

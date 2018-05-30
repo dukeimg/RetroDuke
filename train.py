@@ -16,6 +16,7 @@ parser.add_argument('--state', help='the initial state file to load, minus the e
 parser.add_argument('--model', '-m', help='the model to load, minus the extension')
 parser.add_argument('--scenario', '-s', default='scenario', help='the scenario file to load, minus the extension')
 parser.add_argument('--quiet', '-q', action='store_true', help='do not render gameplay')
+parser.add_argument('--skip', action='store_true', help='do not play after training session')
 args = parser.parse_args()
 
 viewer = None
@@ -67,6 +68,6 @@ with tf.Session(config=config) as sess:
             saver.save(sess, "./models/{}/{}.ckpt".format(agent.model.name, save))
         saver.save(sess, "./models/latest_{}_model.ckpt".format(agent.model.name))
         print("Model Saved")
-        if not args.quiet:
+        if not args.quiet and not args.skip:
             parameters = ['python', 'play.py', args.game, args.network, '-s', args.scenario]
             subprocess.run(parameters)

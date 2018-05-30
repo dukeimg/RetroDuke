@@ -12,7 +12,7 @@
         "reward": 1
       },
       "health": {
-        "penalty": 100
+        "penalty": 333
       }
     }
   }

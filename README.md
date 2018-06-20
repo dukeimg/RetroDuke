@@ -8,6 +8,7 @@ Neural networks play my favorite retro games
 
 - Top Gear 2
 - Contra: Hard Corps
+- Doom Troopers
 
 ## Featured networks:
 
@@ -66,7 +67,3 @@ python play.py <game> <network> --optional-parameter <optional_parameter_value>
 - `--state`. The initial state file to load, minus the extension. States allows you to run game on its different moments.
 - `--model`, `-m`. The model to load, minus the extension. Use this parameter to resume your training. By default the 
 last model is used.
-
-## Upcoming games:
-
-- Doom Troopers
